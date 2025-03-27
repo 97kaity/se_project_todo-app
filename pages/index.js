@@ -1,4 +1,6 @@
-const initialTodos = [
+import Todo from "./components/Todo.js";
+
+export const initialTodos = [
   {
     id: "7cec7373-681b-49d9-b065-021d61a69d03",
     name: "Read the sprint's theory",
@@ -19,7 +21,7 @@ const initialTodos = [
   },
 ];
 
-const validationConfig = {
+export const validationConfig = {
   formSelector: ".popup__form",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
