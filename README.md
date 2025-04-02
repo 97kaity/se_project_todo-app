@@ -1,14 +1,14 @@
-# Simple Todo App
+# Todo App
 
-Give a brief description of the project here. Feel free to give it a different name.
+This is an app that can assist in organizing and planning your day.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+The Todo app allows users to enter goals into a form and track them in a list. It also allows the user to enter in a completion date and check off the item once it is finished.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+HTML, CSS, Javascript, OOP
 
 ## Deployment
 
