@@ -76,6 +76,7 @@ class FormValidator {
       this._hideInputError(inputElement); // Clears error messages
     });
 
+    this._formElement.reset();
     this._toggleButtonState();
   }
 }
