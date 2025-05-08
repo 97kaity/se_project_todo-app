@@ -53,15 +53,12 @@ addTodoForm.addEventListener("submit", (evt) => {
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);
-  todosList.append(todo);
+  section.addItem(todo);
 };
 
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    let todoElement = renderTodo(item);
-    section.addItem(todoElement);
-  },
+  renderer: renderTodo,
   containerSelector: ".todos__list",
 });
 
