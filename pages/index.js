@@ -19,21 +19,21 @@ const generateTodo = (item) => {
   return todoElement;
 };
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
+//const openModal = (modal) => {
+//modal.classList.add("popup_visible");
+//};
 
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
+//const closeModal = (modal) => {
+//modal.classList.remove("popup_visible");
+//};
 
 addTodoButton.addEventListener("click", () => {
-  openModal(addTodoPopupEl);
+  addTodoPopup.open();
 });
 
-addTodoCloseBtn.addEventListener("click", () => {
-  closeModal(addTodoPopupEl);
-});
+//addTodoCloseBtn.addEventListener("click", () => {
+//addTodoPopup.close();
+//});
 
 addTodoForm.addEventListener("submit", (evt) => {
   evt.preventDefault();
@@ -48,7 +48,7 @@ addTodoForm.addEventListener("submit", (evt) => {
   const values = { name, date, id };
   const todo = generateTodo(values);
   todosList.append(todo);
-  closeModal(addTodoPopupEl);
+  addTodoPopup.close();
   newTodoValidator.resetValidation();
 });
 
@@ -67,6 +67,7 @@ const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: () => {},
 });
+addTodoPopup.setEventListeners();
 
 section.renderItems();
 
