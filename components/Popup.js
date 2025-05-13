@@ -17,7 +17,7 @@ class Popup {
 
   close() {
     this._popupElement.classList.remove("popup_visible");
-    //remove the escape listener
+    document.removeEventListener("keyup", this._handleEscapeClose);
   }
 
   setEventListeners() {

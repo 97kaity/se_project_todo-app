@@ -19,13 +19,6 @@ const generateTodo = (item) => {
   return todoElement;
 };
 
-function handleEscapeClose(evt) {
-  if (evt === "Escape") {
-    // find the currently opened modal
-    // and close it
-  }
-}
-
 //const openModal = (modal) => {
 //modal.classList.add("popup_visible");
 //};
