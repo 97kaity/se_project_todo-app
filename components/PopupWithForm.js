@@ -5,16 +5,14 @@ class PopupWithForm extends Popup {
     super({ popupSelector });
     this._popupForm = this._popupElement.querySelector(".popup__form");
     this._handleFormSubmit = handleFormSubmit;
+    this._inputList = this._popupForm.querySelectorAll(".popup__input");
   }
 
   _getInputValues() {
-    //move to constructor
-    this._inputList = this._popupForm.querySelectorAll(".popup__input");
-
-    const values = {};
+    this._values = { name, date, id };
     this._inputList.forEach((input) => {
-      input.name = input.name;
-      input.value = input.value;
+      value.name = input.name;
+      value.value = input.value;
       //add a key/value pair for each input
       //the key is input.name
       //the value is input.value
