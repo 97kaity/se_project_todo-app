@@ -65,9 +65,7 @@ const section = new Section({
 
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
-  handleFormSubmit: (evt) => {
-    console.log("evt.target.name.value");
-  },
+  handleFormSubmit: (inputValues) => {},
 });
 addTodoPopup.setEventListeners();
 

@@ -9,10 +9,9 @@ class PopupWithForm extends Popup {
   }
 
   _getInputValues() {
-    this._values = { name, date, id };
+    const values = {};
     this._inputList.forEach((input) => {
-      value.name = input.name;
-      value.value = input.value;
+      values[input.name] = input.value;
       //add a key/value pair for each input
       //the key is input.name
       //the value is input.value
@@ -26,7 +25,7 @@ class PopupWithForm extends Popup {
     this._popupForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
       const inputValues = this._getInputValues();
-
+      this._handleFormSubmit(inputValues);
       //Pass result of _getInputValues to submission handler
       this._handleFormSubmit(evt);
     });
