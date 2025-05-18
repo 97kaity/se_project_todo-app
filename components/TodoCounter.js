@@ -5,7 +5,7 @@ class TodoCounter {
     this._element = // select the appropriate element
     this._completed = // number of completed todos
     this._total = // the total number of todos
-  }
+  };
   
   // Call this when a checkbox is clicked, and when a completed
   // to-do is deleted.

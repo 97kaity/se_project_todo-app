@@ -19,6 +19,16 @@ const generateTodo = (item) => {
   return todoElement;
 };
 
+function addTodo({ name, date }) {
+  const todoItem = {
+    id: uuidv4(),
+    name,
+    date,
+  };
+  const todoElement = generateTodo(todoItem);
+  section.addItem(todoElement);
+}
+
 //const openModal = (modal) => {
 //modal.classList.add("popup_visible");
 //};
@@ -66,11 +76,14 @@ const section = new Section({
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (inputValues) => {
-    inputValues = {
-      inputValues: inputValues.name,
-      inputValues: inputValues.date,
+    const todoData = {
+      name: inputValues.name,
+      date: inputValues.date,
     };
+    addTodo(todoData);
     addTodoPopup.close();
+    addTodoForm.reset();
+    newTodoValidator.resetValidation();
   },
 });
 addTodoPopup.setEventListeners();
