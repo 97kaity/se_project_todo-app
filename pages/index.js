@@ -66,8 +66,10 @@ const section = new Section({
 const addTodoPopup = new PopupWithForm({
   popupSelector: "#add-todo-popup",
   handleFormSubmit: (inputValues) => {
-    inputValues = { name: inputValues.name, dateInput: inputValues.date };
-    todosList.append(inputValues);
+    inputValues = {
+      inputValues: inputValues.name,
+      inputValues: inputValues.date,
+    };
     addTodoPopup.close();
   },
 });
