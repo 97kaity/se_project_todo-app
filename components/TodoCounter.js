@@ -13,16 +13,16 @@ class TodoCounter {
   // to-do is deleted.
   updateCompleted = (increment) => {
     // if increment is true, add 1 to this._completed. Otherwise,
-    // subtract 1. In either case, call the method to update
-    // the text content.
+    // subtract 1.
+    this._updateText();
   };
 
   // Call this when a to-do is deleted, or when a to-do is
   // created via the form.
   updateTotal = (increment) => {
     // if increment is true, add 1 to this._total. Otherwise,
-    // subtract 1. In either case, call the method to update the
-    // text content.
+    // subtract 1.
+    this._updateText();
   };
 
   // Call the method to update the text content
