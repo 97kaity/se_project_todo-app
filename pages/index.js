@@ -16,20 +16,39 @@ const addTodoForm = document.forms["add-todo-form"];
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const generateTodo = (item) => {
-  const todo = new Todo(item, "#todo-template");
+  const todo = new Todo(item, "#todo-template", handleCheck, handleTotal);
   const todoElement = todo.getView();
 
   return todoElement;
 };
+
+function handleTotal(action) {
+  switch (action) {
+    case "add":
+      todoCounter.incrementTotal();
+      break;
+    case "remove":
+      todoCounter.decrementTotal();
+      break;
+    default:
+      console.warn(`Unknown action: ${action}`);
+  }
+}
 
 function addTodo({ name, date }) {
   const todoItem = {
     id: uuidv4(),
     name,
     date,
+    completed: false,
   };
   const todoElement = generateTodo(todoItem);
   section.addItem(todoElement);
+  handleTotal("add");
+}
+
+function handleCheck(isChecked) {
+  todoCounter.updateCompleted(isChecked);
 }
 
 //const openModal = (modal) => {
