@@ -31,7 +31,7 @@ function addTodo({ name, date }) {
     date,
     completed: false,
   };
-  const todoElement = generateTodo(todoItem);
+  const todoElement = renderTodo();
   section.addItem(todoElement);
   todoCounter.updateTotal(true);
 }
@@ -43,27 +43,6 @@ function handleCheck(isChecked) {
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
-
-//addTodoCloseBtn.addEventListener("click", () => {
-//addTodoPopup.close();
-//});
-
-//addTodoForm.addEventListener("submit", (evt) => {
-// evt.preventDefault();
-// const name = evt.target.name.value;
-// const dateInput = evt.target.date.value;
-
-// Create a date object and adjust for timezone
-// const date = new Date(dateInput);
-// date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
-
-// const id = uuidv4();
-// const values = { name, date, id };
-// const todo = generateTodo(values);
-// todosList.append(todo);
-// addTodoPopup.close();
-// newTodoValidator.resetValidation();
-//});
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);

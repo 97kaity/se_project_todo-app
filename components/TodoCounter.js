@@ -24,16 +24,6 @@ class TodoCounter {
     this._updateText();
   };
 
-  //incrementTotal = () => {
-  // this._total += 1;
-  // this._updateText();
-  //};
-
-  //decrementTotal = () => {
-  //  this._total -= 1;
-  //  this._updateText();
-  //};
-
   _updateText() {
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
   }
