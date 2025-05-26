@@ -8,32 +8,21 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import TodoCounter from "../components/TodoCounter.js";
 
 const addTodoButton = document.querySelector(".button_action_add");
-//const addTodoPopupEl = document.querySelector("#add-todo-popup");
 const addTodoForm = document.forms["add-todo-form"];
-//const addTodoCloseBtn = addTodoPopupEl.querySelector(".popup__close");
-//const todosList = document.querySelector(".todos__list");
 
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const generateTodo = (item) => {
-  const todo = new Todo(item, "#todo-template", handleCheck, handleTotal);
+  const todo = new Todo(
+    item,
+    "#todo-template",
+    handleCheck,
+    todoCounter.updateTotal
+  );
   const todoElement = todo.getView();
 
   return todoElement;
 };
-
-function handleTotal(action) {
-  switch (action) {
-    case "add":
-      todoCounter.incrementTotal();
-      break;
-    case "remove":
-      todoCounter.decrementTotal();
-      break;
-    default:
-      console.warn(`Unknown action: ${action}`);
-  }
-}
 
 function addTodo({ name, date }) {
   const todoItem = {
@@ -44,20 +33,12 @@ function addTodo({ name, date }) {
   };
   const todoElement = generateTodo(todoItem);
   section.addItem(todoElement);
-  handleTotal("add");
+  todoCounter.updateTotal(true);
 }
 
 function handleCheck(isChecked) {
   todoCounter.updateCompleted(isChecked);
 }
-
-//const openModal = (modal) => {
-//modal.classList.add("popup_visible");
-//};
-
-//const closeModal = (modal) => {
-//modal.classList.remove("popup_visible");
-//};
 
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
@@ -104,7 +85,6 @@ const addTodoPopup = new PopupWithForm({
     };
     addTodo(todoData);
     addTodoPopup.close();
-    addTodoForm.reset();
     newTodoValidator.resetValidation();
   },
 });

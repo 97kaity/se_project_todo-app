@@ -15,15 +15,24 @@ class TodoCounter {
     this._updateText();
   };
 
-  incrementTotal = () => {
-    this._total += 1;
+  updateTotal = (shouldIncrement) => {
+    if (shouldIncrement) {
+      this._total = this._total + 1;
+    } else {
+      this._total = this._total - 1;
+    }
     this._updateText();
   };
 
-  decrementTotal = () => {
-    this._total -= 1;
-    this._updateText();
-  };
+  //incrementTotal = () => {
+  // this._total += 1;
+  // this._updateText();
+  //};
+
+  //decrementTotal = () => {
+  //  this._total -= 1;
+  //  this._updateText();
+  //};
 
   _updateText() {
     this._element.textContent = `Showing ${this._completed} out of ${this._total} completed`;
