@@ -13,12 +13,7 @@ const addTodoForm = document.forms["add-todo-form"];
 const todoCounter = new TodoCounter(initialTodos, ".counter__text");
 
 const generateTodo = (item) => {
-  const todo = new Todo(
-    item,
-    "#todo-template",
-    handleCheck,
-    todoCounter.updateTotal
-  );
+  const todo = new Todo(item, "#todo-template", handleCheck, handleDelete);
   const todoElement = todo.getView();
 
   return todoElement;
@@ -31,8 +26,7 @@ function addTodo({ name, date }) {
     date,
     completed: false,
   };
-  const todoElement = renderTodo();
-  section.addItem(todoElement);
+  renderTodo(todoItem);
   todoCounter.updateTotal(true);
 }
 
@@ -43,6 +37,13 @@ function handleCheck(isChecked) {
 addTodoButton.addEventListener("click", () => {
   addTodoPopup.open();
 });
+
+function handleDelete(completed) {
+  todoCounter.updateTotal();
+  if (completed) {
+    todoCounter.updateCompleted(false);
+  }
+}
 
 const renderTodo = (item) => {
   const todo = generateTodo(item);
